@@ -24,6 +24,7 @@ export default {
   created: function () {
     // every form element has a unique uuid
     this.uuid = Math.random().toString(36).substring(3, 8)
+    this.handleChangeEvent = false
   },
   computed: {
     pristine: function () {
@@ -53,6 +54,9 @@ export default {
       * change event triggers by each component as logics are different
       * this.$dispatch('change', newVal)
       */
+      if (!this.handleChangeEvent) {
+        this.$dispatch('change', newVal)
+      }
     }
   },
   data: function () {
@@ -64,3 +68,4 @@ export default {
     }
   }
 }
+

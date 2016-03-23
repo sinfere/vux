@@ -1,7 +1,7 @@
 /* global describe, it, expect */
 
 import Vue from 'vue'
-import XInput from 'src/components/Input'
+import XInput from 'src/components/input/'
 
 describe('Input.vue', () => {
   it('should render correct contents', () => {
@@ -21,7 +21,7 @@ describe('should has default properties', () => {
     }).$mount()
     expect(vm.$refs.input.uuid.length).toBe(5)
     expect(vm.$refs.input.dirty).toBe(false)
-    expect(vm.$refs.input.prisine).toBe(true)
+    expect(vm.$refs.input.pristine).toBe(true)
     expect(vm.$refs.input.touched).toBe(true)
     expect(vm.$refs.input.untouched).toBe(false)
     expect(vm.$refs.input.required).toBe(false)
