@@ -26,7 +26,7 @@ export default {
     this.uuid = Math.random().toString(36).substring(3, 8)
   },
   computed: {
-    prisine: function () {
+    pristine: function () {
       return !this.dirty
     },
     invalid: function () {
