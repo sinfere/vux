@@ -90,6 +90,28 @@ var Scroller = function (container, options) {
   component.addEventListener('touchend', function (e) {
     self.__doTouchEnd(e.timeStamp)
   }, false)
+
+  component.addEventListener('mousedown', function (e) {
+    if (e.target.tagName.match(/input|textarea|select/i)) {
+      return
+    }
+    e.preventDefault()
+    self.__doTouchStart([{
+      pageX: e.pageX,
+      pageY: e.pageY
+    }], e.timeStamp)
+  }, false)
+
+  component.addEventListener('mousemove', function (e) {
+    self.__doTouchMove([{
+      pageX: e.pageX,
+      pageY: e.pageY
+    }], e.timeStamp)
+  }, false)
+
+  component.addEventListener('mouseup', function (e) {
+    self.__doTouchEnd(e.timeStamp)
+  }, false)
 }
 
 var members = {
